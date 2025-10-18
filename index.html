@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Model of Cell Organelles</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #c8f7f0, #e0f7fa);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #004d40;
+      margin-top: 30px;
+    }
+
+    .cell {
+      margin: 30px auto;
+      width: 450px;
+      height: 450px;
+      border: 6px solid #004d40;
+      border-radius: 50%;
+      position: relative;
+      background: radial-gradient(circle at center, #b2dfdb, #80cbc4);
+      box-shadow: 0 0 25px rgba(0, 77, 64, 0.3);
+    }
+
+    .organelle {
+      position: absolute;
+      border-radius: 50%;
+      background: #26a69a;
+      color: white;
+      padding: 10px 15px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .organelle:hover {
+      transform: scale(1.1);
+      background: #00796b;
+    }
+
+    #info {
+      background: #004d40;
+      color: white;
+      width: 80%;
+      margin: 20px auto;
+      border-radius: 12px;
+      padding: 15px;
+      font-size: 16px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧫 Digital Model of a Cell</h1>
+  <p>Click on any organelle to learn about its function.</p>
+
+  <div class="cell">
+    <div class="organelle" style="top: 48%; left: 42%;" onclick="showInfo('Nucleus: The control center of the cell that contains genetic material (DNA).')">Nucleus</div>
+    <div class="organelle" style="top: 20%; left: 30%;" onclick="showInfo('Mitochondria: The powerhouse of the cell that produces energy (ATP).')">Mitochondria</div>
+    <div class="organelle" style="top: 60%; left: 60%;" onclick="showInfo('Ribosomes: Small particles that help in protein synthesis.')">Ribosomes</div>
+    <div class="organelle" style="top: 35%; left: 60%;" onclick="showInfo('Endoplasmic Reticulum (ER): Transports materials and assists in protein and lipid synthesis.')">ER</div>
+    <div class="organelle" style="top: 65%; left: 25%;" onclick="showInfo('Golgi Apparatus: Modifies, sorts, and packages proteins for transport.')">Golgi Apparatus</div>
+    <div class="organelle" style="top: 25%; left: 70%;" onclick="showInfo('Lysosomes: Breaks down waste materials and cellular debris.')">Lysosomes</div>
+    <div class="organelle" style="top: 75%; left: 50%;" onclick="showInfo('Vacuole: Stores water, food, and waste materials. Larger in plant cells.')">Vacuole</div>
+    <div class="organelle" style="top: 40%; left: 15%;" onclick="showInfo('Chloroplast: Found only in plant cells, performs photosynthesis to make food.')">Chloroplast</div>
+    <div class="organelle" style="top: 85%; left: 35%;" onclick="showInfo('Cytoplasm: Jelly-like fluid where all organelles are suspended.')">Cytoplasm</div>
+    <div class="organelle" style="top: 5%; left: 45%;" onclick="showInfo('Cell Membrane: Controls movement of substances in and out of the cell.')">Cell Membrane</div>
+    <div class="organelle" style="top: 5%; left: 10%;" onclick="showInfo('Cell Wall: Found only in plant cells, provides structure and protection.')">Cell Wall</div>
+  </div>
+
+  <div id="info">Click an organelle to see its description here.</div>
+
+  <footer>
+    © 2025 Digital Cell Model Project | Created using HTML, CSS & GitHub Pages
+  </footer>
+
+  <script>
+    function showInfo(text) {
+      document.getElementById("info").innerText = text;
+    }
+  </script>
+</body>
+</html>
