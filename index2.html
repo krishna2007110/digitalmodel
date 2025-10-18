@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Digital Cell Model</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      background: radial-gradient(circle at center, #e0f7fa, #b2dfdb);
+      margin: 0;
+      padding: 0;
+      color: #004d40;
+    }
+
+    h1 {
+      margin-top: 25px;
+      color: #00695c;
+    }
+
+    model-viewer {
+      width: 90%;
+      height: 500px;
+      margin: 20px auto;
+      border-radius: 20px;
+      border: 5px solid #004d40;
+      box-shadow: 0 0 30px rgba(0, 77, 64, 0.4);
+    }
+
+    #info-box {
+      background: #004d40;
+      color: white;
+      width: 80%;
+      margin: 10px auto;
+      border-radius: 12px;
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #26a69a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #00796b;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding-bottom: 30px;
+      font-size: 14px;
+      color: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧬 3D Interactive Digital Cell Model</h1>
+  <p>Use your mouse or touch to rotate, zoom, and explore the cell!</p>
+
+  <!-- 3D Cell Model -->
+  <model-viewer src="cell_model.glb" alt="3D Model of a Cell" 
+                auto-rotate camera-controls 
+                ar ar-modes="webxr scene-viewer quick-look"
+                exposure="1" shadow-intensity="1">
+  </model-viewer>
+
+  <div id="info-box">Click a button below to learn about each organelle.</div>
+
+  <!-- Organelles Info Buttons -->
+  <div>
+    <button onclick="showInfo('Nucleus: The control center containing DNA.')">Nucleus</button>
+    <button onclick="showInfo('Mitochondria: The powerhouse that produces energy (ATP).')">Mitochondria</button>
+    <button onclick="showInfo('Ribosomes: Tiny factories that make proteins.')">Ribosomes</button>
+    <button onclick="showInfo('ER: Network for transport and synthesis of proteins/lipids.')">ER</button>
+    <button onclick="showInfo('Golgi Apparatus: Packages and ships proteins.')">Golgi</button>
+    <button onclick="showInfo('Lysosomes: Breaks down waste and worn-out parts.')">Lysosomes</button>
+    <button onclick="showInfo('Chloroplast: Performs photosynthesis (only in plant cells).')">Chloroplast</button>
+    <button onclick="showInfo('Vacuole: Stores food, water, and waste materials.')">Vacuole</button>
+    <button onclick="showInfo('Cytoplasm: Jelly-like fluid that holds organelles.')">Cytoplasm</button>
+    <button onclick="showInfo('Cell Membrane: Controls what enters and leaves the cell.')">Cell Membrane</button>
+    <button onclick="showInfo('Cell Wall: Provides structure and support (plant only).')">Cell Wall</button>
+  </div>
+
+  <footer>
+    © 2025 Digital 3D Cell Model | Made with ❤️ using Model-Viewer & GitHub Pages
+  </footer>
+
+  <script>
+    function showInfo(text) {
+      document.getElementById("info-box").innerText = text;
+    }
+  </script>
+</body>
+</html>
