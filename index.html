@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Model of Cell Organelles</title>
+
   <style>
     body {
       font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #c8f7f0, #e0f7fa);
+      background: linear-gradient(135deg, #d4f8e8, #a7ffeb);
       text-align: center;
       margin: 0;
       padding: 0;
@@ -20,8 +21,8 @@
 
     .cell {
       margin: 30px auto;
-      width: 450px;
-      height: 450px;
+      width: 500px;
+      height: 500px;
       border: 6px solid #004d40;
       border-radius: 50%;
       position: relative;
@@ -31,18 +32,29 @@
 
     .organelle {
       position: absolute;
-      border-radius: 50%;
-      background: #26a69a;
-      color: white;
-      padding: 10px 15px;
-      font-size: 13px;
+      text-align: center;
       cursor: pointer;
-      transition: transform 0.3s, background 0.3s;
+      transition: transform 0.3s;
     }
 
     .organelle:hover {
       transform: scale(1.1);
-      background: #00796b;
+    }
+
+    .organelle img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid #004d40;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .organelle p {
+      margin-top: 5px;
+      font-size: 13px;
+      color: #004d40;
+      font-weight: 600;
     }
 
     #info {
@@ -60,32 +72,76 @@
       margin-top: 20px;
       font-size: 14px;
       color: #004d40;
+      padding-bottom: 30px;
     }
   </style>
 </head>
 <body>
 
   <h1>🧫 Digital Model of a Cell</h1>
-  <p>Click on any organelle to learn about its function.</p>
+  <p>Click on an organelle to learn its function.</p>
 
   <div class="cell">
-    <div class="organelle" style="top: 48%; left: 42%;" onclick="showInfo('Nucleus: The control center of the cell that contains genetic material (DNA).')">Nucleus</div>
-    <div class="organelle" style="top: 20%; left: 30%;" onclick="showInfo('Mitochondria: The powerhouse of the cell that produces energy (ATP).')">Mitochondria</div>
-    <div class="organelle" style="top: 60%; left: 60%;" onclick="showInfo('Ribosomes: Small particles that help in protein synthesis.')">Ribosomes</div>
-    <div class="organelle" style="top: 35%; left: 60%;" onclick="showInfo('Endoplasmic Reticulum (ER): Transports materials and assists in protein and lipid synthesis.')">ER</div>
-    <div class="organelle" style="top: 65%; left: 25%;" onclick="showInfo('Golgi Apparatus: Modifies, sorts, and packages proteins for transport.')">Golgi Apparatus</div>
-    <div class="organelle" style="top: 25%; left: 70%;" onclick="showInfo('Lysosomes: Breaks down waste materials and cellular debris.')">Lysosomes</div>
-    <div class="organelle" style="top: 75%; left: 50%;" onclick="showInfo('Vacuole: Stores water, food, and waste materials. Larger in plant cells.')">Vacuole</div>
-    <div class="organelle" style="top: 40%; left: 15%;" onclick="showInfo('Chloroplast: Found only in plant cells, performs photosynthesis to make food.')">Chloroplast</div>
-    <div class="organelle" style="top: 85%; left: 35%;" onclick="showInfo('Cytoplasm: Jelly-like fluid where all organelles are suspended.')">Cytoplasm</div>
-    <div class="organelle" style="top: 5%; left: 45%;" onclick="showInfo('Cell Membrane: Controls movement of substances in and out of the cell.')">Cell Membrane</div>
-    <div class="organelle" style="top: 5%; left: 10%;" onclick="showInfo('Cell Wall: Found only in plant cells, provides structure and protection.')">Cell Wall</div>
+    <div class="organelle" style="top: 50%; left: 45%;" onclick="showInfo('Nucleus: The control center of the cell that contains DNA.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Nucleus" />
+      <p>Nucleus</p>
+    </div>
+
+    <div class="organelle" style="top: 20%; left: 25%;" onclick="showInfo('Mitochondria: The powerhouse of the cell that produces energy (ATP).')">
+      <img src="https://cdn-icons-png.flaticon.com/512/4130/4130872.png" alt="Mitochondria" />
+      <p>Mitochondria</p>
+    </div>
+
+    <div class="organelle" style="top: 65%; left: 65%;" onclick="showInfo('Ribosomes: Tiny structures that make proteins.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815914.png" alt="Ribosomes" />
+      <p>Ribosomes</p>
+    </div>
+
+    <div class="organelle" style="top: 35%; left: 65%;" onclick="showInfo('Endoplasmic Reticulum (ER): Helps transport materials through the cell.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/7457/7457202.png" alt="ER" />
+      <p>ER</p>
+    </div>
+
+    <div class="organelle" style="top: 70%; left: 30%;" onclick="showInfo('Golgi Apparatus: Packages and sends proteins to their destinations.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815958.png" alt="Golgi Apparatus" />
+      <p>Golgi</p>
+    </div>
+
+    <div class="organelle" style="top: 25%; left: 75%;" onclick="showInfo('Lysosomes: Break down waste materials and worn-out cell parts.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815943.png" alt="Lysosomes" />
+      <p>Lysosomes</p>
+    </div>
+
+    <div class="organelle" style="top: 80%; left: 50%;" onclick="showInfo('Vacuole: Stores water, nutrients, and waste materials. Larger in plant cells.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815975.png" alt="Vacuole" />
+      <p>Vacuole</p>
+    </div>
+
+    <div class="organelle" style="top: 40%; left: 10%;" onclick="showInfo('Chloroplast: Found only in plant cells; performs photosynthesis to make food.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3059/3059988.png" alt="Chloroplast" />
+      <p>Chloroplast</p>
+    </div>
+
+    <div class="organelle" style="top: 88%; left: 35%;" onclick="showInfo('Cytoplasm: Jelly-like fluid where organelles are found.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815923.png" alt="Cytoplasm" />
+      <p>Cytoplasm</p>
+    </div>
+
+    <div class="organelle" style="top: 5%; left: 45%;" onclick="showInfo('Cell Membrane: Controls what enters and exits the cell.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/7457/7457198.png" alt="Cell Membrane" />
+      <p>Cell Membrane</p>
+    </div>
+
+    <div class="organelle" style="top: 5%; left: 10%;" onclick="showInfo('Cell Wall: Provides structure and protection; found only in plant cells.')">
+      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815991.png" alt="Cell Wall" />
+      <p>Cell Wall</p>
+    </div>
   </div>
 
-  <div id="info">Click an organelle to see its description here.</div>
+  <div id="info">Click any organelle to see its description here.</div>
 
   <footer>
-    © 2025 Digital Cell Model Project | Created using HTML, CSS & GitHub Pages
+    © 2025 Digital Cell Model Project | Made with ❤️ using HTML, CSS & GitHub Pages
   </footer>
 
   <script>
@@ -95,3 +151,4 @@
   </script>
 </body>
 </html>
+
