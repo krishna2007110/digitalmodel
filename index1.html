@@ -3,150 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Model of Cell Organelles</title>
-
+  <title>3D Digital Cell Model</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
       font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #d4f8e8, #a7ffeb);
       text-align: center;
+      background: radial-gradient(circle at center, #e0f7fa, #b2dfdb);
       margin: 0;
       padding: 0;
+      color: #004d40;
     }
 
     h1 {
-      color: #004d40;
-      margin-top: 30px;
+      margin-top: 25px;
+      color: #00695c;
     }
 
-    .cell {
-      margin: 30px auto;
-      width: 500px;
+    model-viewer {
+      width: 90%;
       height: 500px;
-      border: 6px solid #004d40;
-      border-radius: 50%;
-      position: relative;
-      background: radial-gradient(circle at center, #b2dfdb, #80cbc4);
-      box-shadow: 0 0 25px rgba(0, 77, 64, 0.3);
+      margin: 20px auto;
+      border-radius: 20px;
+      border: 5px solid #004d40;
+      box-shadow: 0 0 30px rgba(0, 77, 64, 0.4);
     }
 
-    .organelle {
-      position: absolute;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .organelle:hover {
-      transform: scale(1.1);
-    }
-
-    .organelle img {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      border: 2px solid #004d40;
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .organelle p {
-      margin-top: 5px;
-      font-size: 13px;
-      color: #004d40;
-      font-weight: 600;
-    }
-
-    #info {
+    #info-box {
       background: #004d40;
       color: white;
       width: 80%;
-      margin: 20px auto;
+      margin: 10px auto;
       border-radius: 12px;
       padding: 15px;
       font-size: 16px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      background: #26a69a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #00796b;
     }
 
     footer {
       margin-top: 20px;
+      padding-bottom: 30px;
       font-size: 14px;
       color: #004d40;
-      padding-bottom: 30px;
     }
   </style>
 </head>
 <body>
 
-  <h1>🧫 Digital Model of a Cell</h1>
-  <p>Click on an organelle to learn its function.</p>
+  <h1>🧬 3D Interactive Digital Cell Model</h1>
+  <p>Use your mouse or touch to rotate, zoom, and explore the cell!</p>
 
-  <div class="cell">
-    <div class="organelle" style="top: 50%; left: 45%;" onclick="showInfo('Nucleus: The control center of the cell that contains DNA.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Nucleus" />
-      <p>Nucleus</p>
-    </div>
+  <!-- 3D Cell Model -->
+  <model-viewer src="cell_model.glb" alt="3D Model of a Cell" 
+                auto-rotate camera-controls 
+                ar ar-modes="webxr scene-viewer quick-look"
+                exposure="1" shadow-intensity="1">
+  </model-viewer>
 
-    <div class="organelle" style="top: 20%; left: 25%;" onclick="showInfo('Mitochondria: The powerhouse of the cell that produces energy (ATP).')">
-      <img src="https://cdn-icons-png.flaticon.com/512/4130/4130872.png" alt="Mitochondria" />
-      <p>Mitochondria</p>
-    </div>
+  <div id="info-box">Click a button below to learn about each organelle.</div>
 
-    <div class="organelle" style="top: 65%; left: 65%;" onclick="showInfo('Ribosomes: Tiny structures that make proteins.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815914.png" alt="Ribosomes" />
-      <p>Ribosomes</p>
-    </div>
-
-    <div class="organelle" style="top: 35%; left: 65%;" onclick="showInfo('Endoplasmic Reticulum (ER): Helps transport materials through the cell.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/7457/7457202.png" alt="ER" />
-      <p>ER</p>
-    </div>
-
-    <div class="organelle" style="top: 70%; left: 30%;" onclick="showInfo('Golgi Apparatus: Packages and sends proteins to their destinations.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815958.png" alt="Golgi Apparatus" />
-      <p>Golgi</p>
-    </div>
-
-    <div class="organelle" style="top: 25%; left: 75%;" onclick="showInfo('Lysosomes: Break down waste materials and worn-out cell parts.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815943.png" alt="Lysosomes" />
-      <p>Lysosomes</p>
-    </div>
-
-    <div class="organelle" style="top: 80%; left: 50%;" onclick="showInfo('Vacuole: Stores water, nutrients, and waste materials. Larger in plant cells.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815975.png" alt="Vacuole" />
-      <p>Vacuole</p>
-    </div>
-
-    <div class="organelle" style="top: 40%; left: 10%;" onclick="showInfo('Chloroplast: Found only in plant cells; performs photosynthesis to make food.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/3059/3059988.png" alt="Chloroplast" />
-      <p>Chloroplast</p>
-    </div>
-
-    <div class="organelle" style="top: 88%; left: 35%;" onclick="showInfo('Cytoplasm: Jelly-like fluid where organelles are found.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815923.png" alt="Cytoplasm" />
-      <p>Cytoplasm</p>
-    </div>
-
-    <div class="organelle" style="top: 5%; left: 45%;" onclick="showInfo('Cell Membrane: Controls what enters and exits the cell.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/7457/7457198.png" alt="Cell Membrane" />
-      <p>Cell Membrane</p>
-    </div>
-
-    <div class="organelle" style="top: 5%; left: 10%;" onclick="showInfo('Cell Wall: Provides structure and protection; found only in plant cells.')">
-      <img src="https://cdn-icons-png.flaticon.com/512/5815/5815991.png" alt="Cell Wall" />
-      <p>Cell Wall</p>
-    </div>
+  <!-- Organelles Info Buttons -->
+  <div>
+    <button onclick="showInfo('Nucleus: The control center containing DNA.')">Nucleus</button>
+    <button onclick="showInfo('Mitochondria: The powerhouse that produces energy (ATP).')">Mitochondria</button>
+    <button onclick="showInfo('Ribosomes: Tiny factories that make proteins.')">Ribosomes</button>
+    <button onclick="showInfo('ER: Network for transport and synthesis of proteins/lipids.')">ER</button>
+    <button onclick="showInfo('Golgi Apparatus: Packages and ships proteins.')">Golgi</button>
+    <button onclick="showInfo('Lysosomes: Breaks down waste and worn-out parts.')">Lysosomes</button>
+    <button onclick="showInfo('Chloroplast: Performs photosynthesis (only in plant cells).')">Chloroplast</button>
+    <button onclick="showInfo('Vacuole: Stores food, water, and waste materials.')">Vacuole</button>
+    <button onclick="showInfo('Cytoplasm: Jelly-like fluid that holds organelles.')">Cytoplasm</button>
+    <button onclick="showInfo('Cell Membrane: Controls what enters and leaves the cell.')">Cell Membrane</button>
+    <button onclick="showInfo('Cell Wall: Provides structure and support (plant only).')">Cell Wall</button>
   </div>
 
-  <div id="info">Click any organelle to see its description here.</div>
-
   <footer>
-    © 2025 Digital Cell Model Project | Made with ❤️ using HTML, CSS & GitHub Pages
+    © 2025 Digital 3D Cell Model | Made with ❤️ using Model-Viewer & GitHub Pages
   </footer>
 
   <script>
     function showInfo(text) {
-      document.getElementById("info").innerText = text;
+      document.getElementById("info-box").innerText = text;
     }
   </script>
 </body>
